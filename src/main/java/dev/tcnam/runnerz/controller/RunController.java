@@ -7,6 +7,7 @@ import dev.tcnam.runnerz.exception.RunNotFoundException;
 import dev.tcnam.runnerz.model.Run;
 import dev.tcnam.runnerz.repository.RunRepository;
 // import dev.tcnam.runnerz.services.RunService;
+import jakarta.validation.Valid;
 
 import java.util.List;
 import java.util.Optional;
@@ -53,13 +54,13 @@ public class RunController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping()
-    public void createRun(@RequestBody Run run){
+    public void createRun(@RequestBody @Valid Run run){
         this.runRepository.createRun(run);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    public void updateRun(@PathVariable Integer id, @RequestBody Run run){
+    public void updateRun(@PathVariable Integer id, @RequestBody @Valid Run run){
         this.runRepository.updateRun(id, run);
     }
 

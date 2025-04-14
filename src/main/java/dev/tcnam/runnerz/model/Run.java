@@ -3,8 +3,16 @@ package dev.tcnam.runnerz.model;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import jakarta.validation.constraints.NotBlank;
+
+
+
 public class Run {
+
     private Integer id;
+    @NotBlank
     private String title;
     private LocalDateTime startDateTime;
     private LocalDateTime endDateTime;
