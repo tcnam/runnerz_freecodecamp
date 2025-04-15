@@ -22,20 +22,21 @@ public class RunnerzApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RunnerzApplication.class, args);
-		// log.info("hello world");
-		// Run run  = new Run(1, "First Run", LocalDateTime.now(), LocalDateTime.now().plus(1, ChronoUnit.HOURS), (long) (3.0), "Chicago");
-		// log.info("Run info: " + run);
+		log.info("hello world");
+		Run run  = new Run(1, "First Run", LocalDateTime.now(), LocalDateTime.now().plus(1, ChronoUnit.HOURS), (long) (3.0), "Chicago");
+		log.info("Run info: " + run);
+		log.info(LocalDateTime.now().toString());
 	}
 	
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
-			System.out.println("Let's inspect the beans provided by Spring Boot:");
-			String[] beanNames = ctx.getBeanDefinitionNames();
-			Arrays.sort(beanNames);
-			for (String beanName : beanNames) {
-				System.out.println(beanName);
-			}
+			// System.out.println("Let's inspect the beans provided by Spring Boot:");
+			// String[] beanNames = ctx.getBeanDefinitionNames();
+			// Arrays.sort(beanNames);
+			// for (String beanName : beanNames) {
+			// 	System.out.println(beanName);
+			// }
 
 		};
 	}

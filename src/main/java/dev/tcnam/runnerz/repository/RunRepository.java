@@ -56,7 +56,6 @@ public class RunRepository {
 
     @PostConstruct
     private void init() {
-        System.out.println(LocalDateTime.now());
         this.runs.add(new Run(1, "First Run", LocalDateTime.now(), LocalDateTime.now().plus(1, ChronoUnit.HOURS), (long) (3.0), "Chicago"));
         this.runs.add(new Run(2, "Second Run", LocalDateTime.now(), LocalDateTime.now().plus(2, ChronoUnit.HOURS), (long) (5.0), "Newyork"));
     }

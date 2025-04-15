@@ -3,7 +3,7 @@ package dev.tcnam.runnerz.model;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.validation.constraints.NotBlank;
 
@@ -28,20 +28,19 @@ public class Run {
         this.location = location;
     }
 
-    public Duration getDuration() {
-        return Duration.between(startDateTime, endDateTime);
-    }
-
-    public Integer getAvgPace() {
-        return Math.toIntExact(getDuration().toMinutes() / distance);
-    }
-
     public Integer getId() {
         return this.id;
     }
 
     public String getTitle() {
         return this.title;
+    }
+
+    public LocalDateTime getStartDateTime(){
+        return this.startDateTime;
+    }
+    public LocalDateTime getEndDateTime(){
+        return this.endDateTime;
     }
 
     public Long getDistance() {
@@ -51,6 +50,16 @@ public class Run {
     public String getLocation() {
         return this.location;
     }
+
+    public Duration getDuration() {
+        return Duration.between(startDateTime, endDateTime);
+    }
+
+    public Integer getAvgPace() {
+        return Math.toIntExact(getDuration().toMinutes() / distance);
+    }
+
+
 
     @Override
     public String toString() {
